@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalhe do Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+        <ion-card-title >
+          <ion-item>
+            <ion-label floating>Nome Produto</ion-label>
+            <ion-input class="qtdProd" [(ngModel)]="produto.title" type="text" (change)="alterarProduto(produto)"> </ion-input>
+          </ion-item>
+
+          <br />
+          <div style="text-align: center">
+            <img style="max-width: 150px; display: inline-block" [src]="produto.foto" *ngIf="produto.foto" />  
+          </div>
+        </ion-card-title>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Quantidade</ion-label>
+          <ion-input class="qtdProd" [(ngModel)]="produto.quantidade" type="number" min="0" value="{{produto.quantidade}}" (change)="alterarProduto(produto)" > </ion-input>
+        </ion-item>
+      </ion-col>
+
+       <ion-col text-center>
+        <button ion-button clear small (click)="tirarFoto()" icon-left>
+          <ion-icon name="camera"></ion-icon> 
+          Foto
+        </button>
+      </ion-col>
+
+      <ion-col text-right>
+        <button ion-button clear small color="danger" (click)="excluir()" icon-left>
+          <ion-icon name="trash"></ion-icon> 
+          Excluir
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

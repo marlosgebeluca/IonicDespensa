@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Adicionar Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <ion-card-content>
+          <ion-card-title >
+            <ion-item>
+              <ion-label floating>Nome Produto</ion-label>
+              <ion-input type="text" [(ngModel)]="nome"> </ion-input>
+            </ion-item>
+            <br />
+          <div style="text-align: center">
+            <img style="max-width: 150px; display: inline-block" *ngIf="foto" [(ngModel)]="foto" ngDefaultControl/>  
+          </div>
+          </ion-card-title>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Quantidade</ion-label>
+            <ion-input type="number" min="0" [(ngModel)]="quantidade"> </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col text-center>
+          <button ion-button clear small (click)="tirarFoto()" icon-left>
+            <ion-icon name="camera"></ion-icon> 
+            Foto
+          </button>
+        </ion-col>
+
+        <ion-col text-right>
+          <button ion-button clear small color="secondary" (click)="incluir()" icon-left>
+            <ion-icon name="add-circle"></ion-icon> 
+            Incluir
+          </button>
+        </ion-col>
+      </ion-row>
+  </ion-card>
+</ion-content>
